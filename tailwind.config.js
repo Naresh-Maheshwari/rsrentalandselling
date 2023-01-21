@@ -7,12 +7,15 @@ module.exports = {
   ],
   theme: {
     extend: {
-      screens: {
-        sm: "640px",
-        md: "768px",
-        lg: "1024px",
-        xl: "1280px",
-        "2xl": "1536px",
+      colors: {
+        lighten: "#08a88a",
+        global_color_primary: "#BAFF39",
+        global_color_secondary: "#383838",
+        brownPrimary: "#9B7355",
+        lightBlue: "#557D9B",
+        tertiary: "#A3BBCD",
+        background: "#6E6E6E",
+        light_secondary: "#282828",
       },
     },
   },

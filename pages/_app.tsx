@@ -1,15 +1,13 @@
-import "~/styles/global.css";
+import "~/styles/global.scss";
 import type { AppProps } from "next/app";
-import Navigation from "~/components/Navigation";
 import Footer from "~/components/Footer";
 
 function MyApp({ Component, pageProps }: AppProps) {
   return (
-    <>
-      <Navigation />
+    <div className="bg-background">
       <Component {...pageProps} />
       <Footer />
-    </>
+    </div>
   );
 }
 

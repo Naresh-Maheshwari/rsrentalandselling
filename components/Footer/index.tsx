@@ -1,37 +1,29 @@
+import Link from "next/link";
 import React, { ReactElement } from "react";
+
+const Links = ["Terms and Conditions"];
 
 const Footer = (): ReactElement => {
   return (
-    <div className="container mx-auto">
-      <footer className="bg-white rounded-lg shadow md:flex md:items-center md:justify-between md:py-6 md:pb-6 dark:bg-gray-800">
-        <span className="text-sm text-gray-500 sm:text-center dark:text-gray-400">
+    <div className="bg-light_secondary text-white">
+      <footer className="container mx-auto pb-4 py-4 px-5 shadow md:flex md:items-center md:justify-between md:py-6 md:pb-6">
+        <span className="text-sm sm:text-center">
           © 2023{" "}
-          <a href="https://flowbite.com/" className="hover:underline">
-            Flowbite™
-          </a>
+          <Link href="/" className="hover:underline">
+            GetItOrRentIt
+          </Link>
           . All Rights Reserved.
         </span>
-        <ul className="flex flex-wrap items-center mt-3 text-sm text-gray-500 dark:text-gray-400 sm:mt-0">
-          <li>
-            <a href="#" className="mr-4 hover:underline md:mr-6 ">
-              About
-            </a>
-          </li>
-          <li>
-            <a href="#" className="mr-4 hover:underline md:mr-6">
-              Privacy Policy
-            </a>
-          </li>
-          <li>
-            <a href="#" className="mr-4 hover:underline md:mr-6">
-              Licensing
-            </a>
-          </li>
-          <li>
-            <a href="#" className="hover:underline">
-              Contact
-            </a>
-          </li>
+        <ul className="flex flex-wrap items-center text-sm sm:mt-0">
+          {Links.map((link) => {
+            return (
+              <li key={link}>
+                <a href="#" className="mr-4 hover:underline md:mr-6 ">
+                  {link}
+                </a>
+              </li>
+            );
+          })}
         </ul>
       </footer>
     </div>

@@ -1,0 +1,26 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+  body {
+    margin: 0;
+    overflow: auto;
+  }
+  .with-bullets ul {
+    list-style-type: initial;
+    margin: initial;
+    padding: initial;
+  }
+  .laptop-specifications ul li:not(:last-child) {
+    margin-bottom: 8px;
+  }
+  .animated-logo {
+    max-width: 150px;
+  }
+  .text-orientation::before {
+    text-transform: uppercase;
+    opacity: 0.05;
+    font-size: 15rem;
+  }
+}

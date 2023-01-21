@@ -1,26 +1,32 @@
+import Link from "next/link";
 import React, { ReactElement } from "react";
-import { PageProps } from "~/pages";
+import { PageProps } from "~/@types/laptopData";
 
 const Card = ({ laptopDetails }: PageProps): ReactElement => {
   return (
-    <div className="mb-4 my-4">
-      <div className="bg-white grid 2xl:grid-cols-4 gap-4">
+    <div className="container mx-auto mb-5 my-5 px-5 sm:px-0 md:px-5 2xl:px-0">
+      <div className="grid sm:grid-cols-2 md:grid-cols-2 xl:grid-cols-4 gap-4">
         {(laptopDetails || []).map(({ id, model, specifications, price }) => {
+          const beforeContent = model.substring(0, 1);
           return (
             <React.Fragment key={id}>
-              <div className="px-5 pb-5 py-5 w-full border-cyan-400 border 2xl:rounded-lg">
-                <h2 className="font-semibold mb-4 2xl:text-xl">{model}</h2>
-                <div dangerouslySetInnerHTML={{ __html: specifications }} />
-                <p className="font-bold 2xl:my-4 2xl:text-lg">
-                  Price: {price}/
-                </p>
+              <div
+                data-before={beforeContent}
+                className={`px-5 pb-5 py-5 w-full bg-light_secondary text-white relative overflow-hidden with-bullets before:content-[attr(data-before)] before:absolute text-orientation before:font-bold before:text-global_color_primary before:flex before:items-center before:justify-center before:w-full`}
+              >
+                <h2 className="font-medium mb-4 text-2xl">{model}</h2>
+                <div
+                  dangerouslySetInnerHTML={{ __html: specifications }}
+                  className="px-5 laptop-specifications"
+                />
+                <p className="font-bold my-4 text-lg">Price: {price}/</p>
                 <div className="flex justify-between flex-col w-full">
-                  <a
-                    href="#"
-                    className="text-white bg-blue-700 hover:bg-blue-800 focus:ring-4 focus:ring-blue-300 font-medium rounded-lg text-sm px-5 py-2.5 text-center dark:bg-blue-600 dark:hover:bg-blue-700 dark:focus:ring-blue-800 2xl:my-4 uppercase"
+                  <Link
+                    href="/emailconfirmation"
+                    className="text-global_color_secondary bg-global_color_primary text-sm px-5 py-3 text-center my-4 uppercase font-bold 2xl:text-base hover:text-black hover:bg-white"
                   >
                     GET IT OR RENT IT
-                  </a>
+                  </Link>
                 </div>
               </div>
             </React.Fragment>
